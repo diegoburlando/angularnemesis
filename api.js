@@ -115,9 +115,9 @@ router.post('/postaudio', (req, res) => {
 
 router.post('/fetchjournal', (req, res) => {
 
-  const fetchJournal = () => {
+  const fetchJournal = async () => {
       let useremail= req.body.useremail;
-      mongoClient.connect(mongoconnection,{ useNewUrlParser: true }, (err, client) => {
+      let entries = await  mongoClient.connect(mongoconnection,{ useNewUrlParser: true }, (err, client) => {
           if (err) return err;                                       
           const db = client.db('nemesis');
           const collection = db.collection('UserProfile');
@@ -127,12 +127,13 @@ router.post('/fetchjournal', (req, res) => {
               return userprofile.content.journal.entries;
             });
       }); 
+      return entries;
   }   
 
   loginwithtoken(req.body.token)
   .then( async () => {         
-       let journal = await fetchJournal();   
-       res.json(journal);  
+      let journal = await fetchJournal();     
+      res.json(journal);
   })
   .catch((err) => {
       res.json(err);
