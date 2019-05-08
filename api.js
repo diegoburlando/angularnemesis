@@ -11,8 +11,8 @@ const fftwrapper = require('./fft/ffthelper');
 const path = require('path');
 const fs = require('fs');
 const mongoClient = require('mongodb');
-const mongoconnection = "mongodb://admin:nemesis@ec2-18-223-235-76.us-east-2.compute.amazonaws.com:27017/?serverSelectionTimeoutMS=5000&connectTimeoutMS=10000&authSource=admin&authMechanism=SCRAM-SHA-256";
-//const mongoconnection = "mongodb://admin:nemesis@localhost:27017/?serverSelectionTimeoutMS=5000&connectTimeoutMS=10000&authSource=admin&authMechanism=SCRAM-SHA-256";
+//const mongoconnection = "mongodb://admin:nemesis@ec2-18-223-235-76.us-east-2.compute.amazonaws.com:27017/?serverSelectionTimeoutMS=5000&connectTimeoutMS=10000&authSource=admin&authMechanism=SCRAM-SHA-256";
+const mongoconnection = "mongodb://admin:nemesis@localhost:27017/?serverSelectionTimeoutMS=5000&connectTimeoutMS=10000&authSource=admin&authMechanism=SCRAM-SHA-256";
 const register = require('./register');
 const login = require('./login');
 const checkusernameemail = require('./checkusernameemail');
@@ -115,25 +115,20 @@ router.post('/postaudio', (req, res) => {
 
 router.post('/fetchjournal', (req, res) => {
 
-  const fetchJournal = () =>{
-      let useremail= req.body.useremail;
-      mongoClient.connect(mongoconnection,{ useNewUrlParser: true }, (err, client) => {
-          if (err) res.json(err);                                       
-          const db = client.db('nemesis');
-          const collection = db.collection('UserProfile');
-          collection.findOne({"profile.useremail" : useremail}, (err, userprofile) => {
-              if(err) res.json(err);                
-              console.log(userprofile);
-              res.json(userprofile.content.journal.entries);
-            });
-      });
-      return "Fetchjournal performed"; 
-  }   
-
   loginwithtoken(req.body.token)
   .then(  () => {         
-       fetchJournal();     
-  })
+        let useremail= req.body.useremail;
+        mongoClient.connect(mongoconnection,{ useNewUrlParser: true }, (err, client) => {
+            if (err) res.json(err);                                       
+            const db = client.db('nemesis');
+            const collection = db.collection('UserProfile');
+            collection.findOne({"profile.useremail" : useremail}, (err, userprofile) => {
+                if(err) res.json(err);                
+                console.log(userprofile);
+                res.json(userprofile.content.journal.entries);
+            });
+        });  
+    })
   .catch((err) => {
       res.json(err);
   })
@@ -142,36 +137,31 @@ router.post('/fetchjournal', (req, res) => {
 
 router.post('/createnewjournalentry', (req, res) => {
 
-  const createNewJournalEntry = () => {        
-      let params = {    
-          useremail: req.body.useremail,
-          entrycontent:req.body.entrycontent,
-          entrytitle :req.body.entrytitle,
-          entrydate: req.body.entrydate            
-      };
-
-      mongoClient.connect(mongoconnection,{ useNewUrlParser: true }, (err, client) => {
-          if (err) res.json(err);                                       
-          const db = client.db('nemesis');
-          const collection = db.collection('UserProfile');
-          collection.updateOne({"profile.useremail" : params.useremail}, { 
-              "$push": { "content.journal.entries": {"entryText":params.entrycontent,"entryDate":params.entrydate, "entryTitle":params.entrytitle} }                
-           }, (err, result) => {
-              if(err) res.json(err);                
-              console.log(result);
-              res.json({success:true});
+    let params = {    
+        useremail: req.body.useremail,
+        entrycontent:req.body.entrycontent,
+        entrytitle :req.body.entrytitle,
+        entrydate: req.body.entrydate            
+    };
+    
+    loginwithtoken(req.body.token)
+    .then(() => {
+        mongoClient.connect(mongoconnection,{ useNewUrlParser: true }, (err, client) => {
+            if (err) res.json(err);                                       
+            const db = client.db('nemesis');
+            const collection = db.collection('UserProfile');
+            collection.updateOne({"profile.useremail" : params.useremail}, { 
+                "$push": { "content.journal.entries": {"entryText":params.entrycontent,"entryDate":params.entrydate, "entryTitle":params.entrytitle} }                
+            }, (err, result) => {
+                if(err) res.json(err);                
+                console.log(result);
+                res.json({success:true});
             });
-      });
-      return "Createnewjournalentry performed"; 
-  }
-
-  loginwithtoken(req.body.token)
-  .then(() => {
-      createNewJournalEntry();
-  })
-  .catch((err) => {
-      res.send(err);
-  })
+        });
+    })
+    .catch((err) => {
+        res.send(err);
+    })
 
 });
 
