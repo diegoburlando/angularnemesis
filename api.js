@@ -11,8 +11,8 @@ const fftwrapper = require('./fft/ffthelper');
 const path = require('path');
 const fs = require('fs');
 const mongoClient = require('mongodb');
-//const mongoconnection = "mongodb://admin:nemesis@ec2-18-223-235-76.us-east-2.compute.amazonaws.com:27017/?serverSelectionTimeoutMS=5000&connectTimeoutMS=10000&authSource=admin&authMechanism=SCRAM-SHA-256";
-const mongoconnection = "mongodb://admin:nemesis@localhost:27017/?serverSelectionTimeoutMS=5000&connectTimeoutMS=10000&authSource=admin&authMechanism=SCRAM-SHA-256";
+const mongoconnection = "mongodb://admin:nemesis@ec2-18-223-235-76.us-east-2.compute.amazonaws.com:27017/?serverSelectionTimeoutMS=5000&connectTimeoutMS=10000&authSource=admin&authMechanism=SCRAM-SHA-256";
+//const mongoconnection = "mongodb://admin:nemesis@localhost:27017/?serverSelectionTimeoutMS=5000&connectTimeoutMS=10000&authSource=admin&authMechanism=SCRAM-SHA-256";
 const register = require('./register');
 const login = require('./login');
 const checkusernameemail = require('./checkusernameemail');
@@ -115,25 +115,24 @@ router.post('/postaudio', (req, res) => {
 
 router.post('/fetchjournal', (req, res) => {
 
-  const fetchJournal = async () => {
+  const fetchJournal = () =>{
       let useremail= req.body.useremail;
-      let entries = await  mongoClient.connect(mongoconnection,{ useNewUrlParser: true }, (err, client) => {
-          if (err) return err;                                       
+      mongoClient.connect(mongoconnection,{ useNewUrlParser: true }, (err, client) => {
+          if (err) res.json(err);                                       
           const db = client.db('nemesis');
           const collection = db.collection('UserProfile');
           collection.findOne({"profile.useremail" : useremail}, (err, userprofile) => {
-              if(err) return err;                
+              if(err) res.json(err);                
               console.log(userprofile);
-              return userprofile.content.journal.entries;
+              res.json(userprofile.content.journal.entries);
             });
-      }); 
-      return entries;
+      });
+      return "Fetchjournal performed"; 
   }   
 
   loginwithtoken(req.body.token)
-  .then( async () => {         
-      let journal = await fetchJournal();     
-      res.json(journal);
+  .then(  () => {         
+       fetchJournal();     
   })
   .catch((err) => {
       res.json(err);
@@ -163,11 +162,12 @@ router.post('/createnewjournalentry', (req, res) => {
               res.json({success:true});
             });
       });
+      return "Createnewjournalentry performed"; 
   }
 
   loginwithtoken(req.body.token)
-  .then(async () => {
-      await createNewJournalEntry();
+  .then(() => {
+      createNewJournalEntry();
   })
   .catch((err) => {
       res.send(err);
