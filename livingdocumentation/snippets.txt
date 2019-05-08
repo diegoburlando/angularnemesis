@@ -1,0 +1,26 @@
+//const csrf = require('csurf');
+
+// const AWS = require('aws-sdk');
+// AWS.config.update({ 
+//     accessKeyId: '', 
+//     secretAccessKey: '', 
+//     region: 'us-east-2',
+// }); 
+
+// const graphqlHTTP = require('express-graphql');
+//let root = require('./graphql/root');
+// const schema = require('./graphql/schema');
+// app.use('/graphql', graphqlHTTP({
+//     schema: schema,
+//     rootValue: root,
+//     graphiql: true,
+//     pretty:true
+// }));
+
+
+// ### The following middleware can be used to intercept specific route. the use must be place before the route we want to intercept. 
+// const genericChecker =  (req, res, next) => {
+//     console.log(req.query.test);
+//     if(req.query.test === 'cicciobomba') next(); else res.json({error:'the querystring is malformed'});   
+// }
+//app.use(genericChecker);

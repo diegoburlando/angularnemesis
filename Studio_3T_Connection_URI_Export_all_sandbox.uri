@@ -1,0 +1,11 @@
+// Connections Exported from Studio 3T -- https://studio3t.com/
+// Exported on May 7, 2019 2:09:28 PM
+
+// DiegoMongoLAB
+mongodb://diegus:diegomary6298@ds061371.mlab.com:61371/diegomary88?connectTimeoutMS=10000&authSource=diegomary88&authMechanism=SCRAM-SHA-1&3t.uriVersion=3&3t.connection.name=DiegoMongoLAB&3t.databases=diegomary88
+
+// MongoAtlas
+mongodb://diegomary:kYRaai4IqxUAlDIA@cluster0-shard-00-00-frtay.mongodb.net:27017,cluster0-shard-00-01-frtay.mongodb.net:27017,cluster0-shard-00-02-frtay.mongodb.net:27017/admin?ssl=true&connectTimeoutMS=10000&authSource=admin&authMechanism=SCRAM-SHA-1&3t.uriVersion=3&3t.connection.name=MongoAtlas&3t.databases=admin
+
+// MaryMongoLAB
+mongodb://6i2qwuhUk03XInwQPt1JR4k:6i2qwuhUk03XInwQPt1JR4k@ds123695.mlab.com:23695/marymongodb?connectTimeoutMS=10000&authSource=marymongodb&authMechanism=SCRAM-SHA-1&3t.uriVersion=3&3t.connection.name=MaryMongoLAB&3t.databases=marymongodb

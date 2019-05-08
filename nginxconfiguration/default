@@ -1,0 +1,53 @@
+upstream loadbalancer {
+	  ip_hash;
+    server 127.0.0.1:8000;
+    server 127.0.0.1:8001;
+    server 127.0.0.1:8002;
+    server 127.0.0.1:8003;  
+  }
+
+server {
+  server_name www.dm88.cloud dm88.cloud sa.dm88.cloud sb.dm88.cloud;
+
+  location / {
+        set $sb 'sb.dm88.cloud';        
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+        if ($host = $sb) {
+          proxy_pass http://localhost:5000;
+          break;       
+        }      
+        proxy_pass http://loadbalancer;          
+    }
+
+    listen [::]:443 ssl; #ipv6only=on;
+    listen 443 ssl;
+    ssl_certificate /etc/letsencrypt/live/dm88.cloud/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/dm88.cloud/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf; 
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+
+}
+server {
+
+    listen 80 ;
+    listen [::]:80 ;
+    server_name 127.0.0.1 www.dm88.cloud dm88.cloud sa.dm88.cloud sb.dm88.cloud;
+    
+   location /nginx_status {
+        stub_status;
+              
+    }
+    if ($host = "www.dm88.cloud") {return 301 https://$host$request_uri;}
+    if ($host = "dm88.cloud") {return 301 https://$host$request_uri;}
+    if ($host = "sa.dm88.cloud") {return 301 https://$host$request_uri;}
+    if ($host = "sb.dm88.cloud") {return 301 https://$host$request_uri;}
+
+}
+
+
+
+
