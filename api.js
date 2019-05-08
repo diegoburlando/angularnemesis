@@ -143,7 +143,7 @@ router.post('/createnewjournalentry', (req, res) => {
         entrytitle :req.body.entrytitle,
         entrydate: req.body.entrydate            
     };
-    
+
     loginwithtoken(req.body.token)
     .then(() => {
         mongoClient.connect(mongoconnection,{ useNewUrlParser: true }, (err, client) => {
@@ -190,19 +190,17 @@ router.post('/register',  (req, res) => {
 });
 
 router.post('/login', (req,res) => { 
-   
-  req.session.pippo="pippo";   
-  let body = req.body;
-  let usernameemail = body.usernameemail;
-  let userpassword = body.userpassword;
-  login(usernameemail, userpassword,req)
-  .then((data)=> { 
-      req.session.authToken = data.token;       
-      res.send(data);
-  })
-  .catch((err) => {
-      res.send(err);
-  })
+    let body = req.body;
+    let usernameemail = body.usernameemail;
+    let userpassword = body.userpassword;
+    login(usernameemail, userpassword)
+    .then((data)=> { 
+        req.session.authToken = data.token;       
+        res.send(data);
+    })
+    .catch((err) => {
+        res.send(err);
+    })
 });
 
 router.get('/authtoken',(req,res) => {
@@ -245,7 +243,7 @@ router.post('/contactus', (req,res) => {
   let message = req.body.message;
       
       request.post({url:"https://www.google.com/recaptcha/api/siteverify", form: {secret:"6LfdDkYUAAAAAK5aGW-BEzk6Q9e1PgxtaTmPNRnS", response :captcha, remoteip:clientIp}}, (err,httpResponse,body) => {
-          if(err){}
+          if(err) res.json({ message: err }); 
           let success = (JSON.parse(body)).success;		
           if(success){
               let transporter = nodemailer.createTransport({

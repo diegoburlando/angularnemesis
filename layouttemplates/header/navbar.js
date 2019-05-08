@@ -5,7 +5,6 @@ import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
 import {light, dark, removeLoginClaims, notlogged} from "../../state/actions";
 import classNames from "classnames";
-import genericAuth from "../../services/authentication/genericshelpersauth";
 import moment from "moment";
 import apiConfig from "../../apiconfiguration/apiconfig";
 

@@ -280,7 +280,7 @@ function AudioRecorder() {
 
     try{ 
         
-        if(active) { requestId = requestAnimationFrame(drawFft)};		
+        if(active) { requestAnimationFrame(drawFft)};		
         analyser.getByteFrequencyData(dataArray);			
         realTimeFftChart.data.datasets[0].data = dataArray;			
         realTimeFftChart.update();	
@@ -354,7 +354,7 @@ function AudioRecorder() {
         <a hidden ref={downloadAudio} href="#" download = "download.flac">Download</a>			
       </div>
       <div ref ={freqlabel}>Hover to check frequency.</div>	
-      <canvas height="200" width="800" ref={analyzerfft} onMouseMove={onMouseMoveInCanvas.bind(this)} onMouseLeave = {onMouseLeaveCanvas.bind(this)} ></canvas> 
+      <canvas height="200" width="800" ref={analyzerfft} onMouseMove={onMouseMoveInCanvas} onMouseLeave = {onMouseLeaveCanvas} ></canvas> 
       <canvas height="300" width="800" ref={graphTD}></canvas>
       <button onClick = {performGraphTD}>Draw Time domain</button>	
       <canvas height="300" width="800" ref={graphFFT}></canvas>

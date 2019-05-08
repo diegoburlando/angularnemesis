@@ -39,7 +39,7 @@ class NasaApodsComponent extends Component {
   randomApods = () => {    
     let randomDatesGen = this.rd.randomDates();
     if (typeof randomDatesGen === 'undefined') {
-      randomDatesGen = this.rd.randomDates();      
+      this.randomApods();      
     }
     else {
       this.startDate = randomDatesGen.startDate;

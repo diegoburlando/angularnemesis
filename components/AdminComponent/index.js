@@ -24,9 +24,7 @@ class Admin extends Component {
 		TrackState(this.context.store,"Admin");
 		this.candidateToken  = this.context.store.getState().profileClaims.Claims.userToken;
 		genericAuth().checkValidToken(this.candidateToken).then(response => {
-			if (response.status >= 400) {		
-							
-			}
+			if (response.status >= 400) return { success:false, claim: {isAdmin:false}};
 			return response.json();
 		})
 		.then(res => {
@@ -61,7 +59,7 @@ class Admin extends Component {
 					})
 				.then(response => {
 				if (response.status >= 400) { 
-					 
+					 return "error";
 				}    
 				return response.json();
 				})
@@ -99,7 +97,7 @@ class Admin extends Component {
 
 		else if(this.state.loading) {
 			return (
-				<div ref="loader" className = {this.state.loading ? "ap-loader-profile" :  "ap-loader-profile-hidden"}>
+				<div ref="loader" className ="ap-loader-profile">
 					<div></div>
 				</div>
 			)			

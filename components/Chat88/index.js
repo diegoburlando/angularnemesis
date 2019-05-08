@@ -382,8 +382,8 @@ updateData = (event) => {};
 		let connectedUsers =[];
 		connectedUsers = [...new Set(this.state.connectedUsers)].filter((el)=> { return (el.authId !== this.adminId) }).map((user)=> {
 			return (
-        <form>
-				<div className = "chat-user" key={user.id}> <span >{user.Name}</span><div className = {user.isTyping ? "chat-typing" : "chat-idle"}></div>
+        <form key={user.id}>
+				<div className = "chat-user" > <span >{user.Name}</span><div className = {user.isTyping ? "chat-typing" : "chat-idle"}></div>
 					<button onClick = { () => {this.sendPrivate(user)} }>Send</button> 
 					<label> Send an image   
           <input onClick= {(e) => e.target.value = null} onChange = {(e) => {this.saveImageBis(e,user)}} type="file" accept = "image/*,capture=camera"/>      

@@ -49,7 +49,7 @@ class Profile extends Component {
 
 			if (!restokenvalid.success) {
 				this.setState({
-					isValidToken : restokenvalid.success ? true : false,
+					isValidToken : false,
 					loading:false					
 				});	
 				return;	
@@ -106,7 +106,7 @@ class Profile extends Component {
 
 		if(this.state.loading) {
 			return (
-				<div ref="loader" className = {this.state.loading ? "ap-loader-profile" :  "ap-loader-profile-hidden"}>
+				<div ref="loader" className = "ap-loader-profile" >
 					<div></div>
 				</div>
 			)			

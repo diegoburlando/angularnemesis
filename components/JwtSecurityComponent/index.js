@@ -236,16 +236,10 @@ class JwtSecurity extends Component {
         this.setState({success4:false});
       }
 
-      //this.refs.resultpassword1.innerHTML = data;
     }); 
   }
 
-  componentWillUpdate(nextProps) {
-    if(nextProps.credentials !== this.props.credentials) {}
 
-    if(nextProps.state !== this.props.state) {}
-  }
- 
   render() {      
 
     let Credentials = () => {

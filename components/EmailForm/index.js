@@ -56,9 +56,7 @@ class EmailForm extends Component {
 		fetch(apiConfig.contactus, { method: "POST" ,body:JSON.stringify(payLoad),	  
 		headers: {'content-type': 'application/json'}})	  
 		.then(response => {	  
-			if (response.status >= 400) {	  
-				  
-			}			 
+			if (response.status >= 400) return "error"; 						 
 			return response.json();	  
 		})	  
 		.then(res => {this.spinner.current.style.display="none";	  

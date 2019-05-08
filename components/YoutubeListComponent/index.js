@@ -58,10 +58,6 @@ class YoutubeListComponent extends Component {
     this.getFeeds('es6 tutorial');
   };
 
-  componentWillUnmount() {};
-  shouldComponentUpdate(nextProps,nextState) {  return true; };
-  componentWillReceiveProps(nextProps) {};
-
   nextPage =(event) => {
     this.numberOfPages = ( this.feedsLength % this.pageSize ) === 0 ? (this.feedsLength /  this.pageSize) : Math.ceil(this.feedsLength /  this.pageSize);  
     if(this.pageNumber < this.numberOfPages)

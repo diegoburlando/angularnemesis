@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-//import Rx from 'rxjs/Rx';
-import { Observable } from 'rxjs/Rx';
 import styles from './maps.css';
 import Footer from '../../FooterComponent/index';
 
