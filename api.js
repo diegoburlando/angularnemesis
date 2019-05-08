@@ -115,23 +115,24 @@ router.post('/postaudio', (req, res) => {
 
 router.post('/fetchjournal', (req, res) => {
 
-  const fetchJournal = () =>{
+  const fetchJournal = () => {
       let useremail= req.body.useremail;
       mongoClient.connect(mongoconnection,{ useNewUrlParser: true }, (err, client) => {
-          if (err) res.json(err);                                       
+          if (err) return err;                                       
           const db = client.db('nemesis');
           const collection = db.collection('UserProfile');
           collection.findOne({"profile.useremail" : useremail}, (err, userprofile) => {
-              if(err) res.json(err);                
+              if(err) return err;                
               console.log(userprofile);
-              res.json(userprofile.content.journal.entries);
+              return userprofile.content.journal.entries;
             });
       }); 
   }   
 
   loginwithtoken(req.body.token)
   .then( async () => {         
-      await fetchJournal();     
+       let journal = await fetchJournal();   
+       res.json(journal);  
   })
   .catch((err) => {
       res.json(err);
