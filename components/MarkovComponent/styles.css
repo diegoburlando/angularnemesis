@@ -1,0 +1,135 @@
+
+.markov-container {
+    width:100%;
+    position:relative;
+    background-color:#D2D3E8;
+}
+
+.markov-links {
+    position:absolute;
+    position:fixed;
+    padding:7em 0 2em 0;
+    text-align:center;
+    width:30%;
+    top:0;
+    right:0;    
+}
+
+.markov-links-mobile {
+    display:none;    
+}
+
+.markov-links > p{
+    margin:0;
+}
+
+.markov-links > a {
+    display:flex;
+    justify-content:center;    
+    margin:1em 0 1em 0;
+}
+
+
+.markov-images {
+    width:50px;
+    height:50px;
+    background-size:75%;
+    background-position:center;
+    border-radius:50%;
+    background-repeat:no-repeat;
+    box-shadow:  3px 3px 10px rgba(0,0,0,0.3);
+    border:2px solid;
+    transition:all 0.1s linear;
+}
+
+.markov-images:hover {
+    box-shadow:  4px 4px 10px rgba(0,0,0,0.5);
+}
+
+.markov-npm {
+    background-image: url("./images/npm.png");
+    background-color:#cc0000;
+    border-color:#cc0000;
+}
+
+.markov-npm:hover {
+    background-color:#e64949;
+    border-color:#e64949;
+}
+
+.markov-git {
+    background-image: url("./images/githublogo.png");
+    background-color:black;
+    border-color:black;
+}
+
+.markov-git:hover {
+    background-color:#444444;
+    border-color:#444444;
+}
+
+.markov-readme {
+    background-color:white;
+    width:70%;
+    padding:2em;
+    box-sizing: border-box;
+    box-shadow: 0 0px 40px rgba(0,0,0,0.3);
+}
+table, th, td {
+    border:1px solid #eeeeee;
+    border-collapse: collapse;
+}
+
+thead {
+    text-align:left;
+}
+
+#mary-markov {
+    margin:0;
+    padding:0;
+}
+.markov-matrix-block {
+    display:flex;    
+    align-items:center;
+    background-color:#eeeeee;
+}
+
+.markov-code {
+    font-family:monospace;
+    font-size: 1em;
+    color:#3f3f3f;
+    background-color:#eeeeee;
+    padding:1em;
+}
+
+@media (min-width:1500px) {
+    .markov-links { 
+        width:20%;
+    }
+    
+    .markov-readme {
+        width:80%;        
+    }
+}
+
+@media (max-width:800px) {
+    .markov-links-mobile {
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        background-color:white;
+        padding-top:1em;
+    }
+
+    .markov-links-mobile > a{ 
+        padding:0 1em;
+    }
+    .markov-links {
+        display:none;
+    }
+
+    .markov-readme {
+        width:100%;
+        box-shadow:none;
+    }
+}

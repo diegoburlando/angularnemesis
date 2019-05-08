@@ -1,0 +1,332 @@
+.fixedNav {
+	position:fixed;
+	width:100%;
+	z-index:4;
+}
+
+.nav-light {
+	background:linear-gradient(35deg, #00afb3, #630080);
+	box-shadow: 0 0 10px rgba(0,0,0,0.4);  
+}
+
+.nav-dark {
+	background-color:#040D20;
+	box-shadow: inset 0 -2px rgba(255,255,255,0.2),0 0 10px rgba(0,0,0,0.4);	
+}
+
+.navbar {	
+	width: 100%;      
+    transition:all 0.2s linear;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;   
+    color:white;
+	position:relative;
+}
+
+.nav-visits {	
+    color: white;    
+    margin: 0;    
+    text-align: center;
+    border-radius: 3px;     
+    line-height: 1em;
+    padding: 1em;     
+	transition:all 0.1s linear;
+}
+
+.navList {
+	display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    list-style-type:none;
+    padding:0;
+	margin:0;
+	z-index:1;
+}
+
+.navLogLiElements {
+	background-color:transparent;
+	display: flex;
+	border:1px solid white;
+	border-radius:3px;
+	margin-left:1em;
+	padding:0.5em 1.5em;
+	position:relative;
+	
+}
+.navLogLiElements a {
+	color:white;
+	font-size:1em;
+	text-decoration:none;	
+	font-family: 'Libre Franklin', sans-serif;	
+	transition:color 0.1s linear;
+}
+.navLogLiElements:hover > a{
+	color:rgb(58, 82, 134);
+}
+.navLogLiElements:hover:before {
+	width:100%;
+}
+
+.navLogLiElements:before {
+	position:absolute;
+	content:'';
+	background-color:white;
+	height:100%;
+	width:0;
+	top:0;
+	left:0;
+	z-index:-1;
+	transition:width 0.3s ease-out;
+}
+
+.navLiElementsFocused {
+	background-color: rgba(255,255,255,0.2);
+	border-bottom:2px solid white;
+	align-items: center;
+	transition:all 0.1s linear;
+	display: flex;
+	height: 5em; 
+	padding: 0 1.5em;
+    box-sizing:border-box;
+    position:relative;
+    text-align:center;
+}
+.navLiElementsHidden {
+	display:none;
+}
+
+.navLiElements {
+	background-color:transparent;
+	display: flex;
+	height: 5em; 
+    align-items: center;
+    transition:all 0.1s linear;
+    padding: 0 1.5em;
+    box-sizing:border-box;
+    position:relative;
+    text-align:center;
+}
+
+.navLiElements a {
+	color:white;
+	font-size:1em;
+	text-decoration:none;	
+	font-family: 'Libre Franklin', sans-serif;			
+}
+.navLiElementsFocused a {
+	color:white;
+	font-size:1em;
+	text-decoration:none;	
+	font-family: 'Libre Franklin', sans-serif;			
+}
+
+.navLiElements:after {
+	content:'';
+	position:absolute;
+	width:100%;
+	height:0;
+	bottom:0;
+	left:0;
+	box-sizing:border-box;
+}
+
+.navLiElements:hover:after {
+	border-bottom:2px solid white;
+}
+
+.logoMobile {
+	width:2.5em;
+	height:3em;
+	padding:1em 0;
+	display:flex;
+	align-items:flex-start;
+	justify-content:space-around;
+	flex-direction:column;
+	visibility:hidden;
+	margin:0 auto;
+	transition:all 0.2s linear;
+	cursor:pointer;		
+}
+
+.logoMobile:hover > div {
+	width:2.5em;	
+}
+
+.logoMobile > div {	
+	width:1em;
+	height:0.4em;
+	background:linear-gradient(35deg, #00afb3, #630080);
+	transition:all 0.2s linear;
+}
+
+.logoMobile > div:nth-of-type(2) {
+	align-self:flex-end;
+}
+
+.webName > p:first-of-type {
+	padding:0 1em;
+	font-size:1.5em;
+}
+
+.logo {	
+	width:4em;
+	height:4em;	
+}
+
+.mobileListContainer {
+	display:none;
+	position:absolute;
+	width:100%;
+	background-color:white;
+	margin-top:-15em;
+	transition:all 0.3s linear;
+	box-shadow:0 0 10px rgba(0,0,0,0.5);
+	position:fixed;
+	z-index:4;
+}
+
+.mobileList {
+	height:15em;
+	width:100%;
+	list-style-type:none;
+    padding:0;
+    margin:0;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    justify-content:space-evenly;
+}
+
+.mobileList li {
+	width:100%;
+	text-align:center;	
+	height:25%;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	transition:all 0.1s linear;
+	border-bottom:1px solid hsl(207, 100%, 95%);	
+}
+
+.mobileList li:hover {
+	background:linear-gradient(35deg, #00afb3, #630080);
+	color:white;
+}
+
+.mobileList li:first-of-type:hover {
+	background-color:white;;
+	color:#101010;
+}
+
+.mobileList li a {
+	text-decoration:none;
+	box-sizing:border-box;
+	padding:0.5em 1em;
+	color:#292c33;
+	font-family: 'Libre Franklin', sans-serif;	
+	transition:all 0.1s linear;
+}
+
+.mobileList li:hover a {
+	color:white;
+}
+
+.theme-changer {	
+	width:120px;
+	position:relative;
+	padding: 1.3em 0;
+}
+
+.theme-buttons-container {
+	position:absolute;
+	top:-10em;
+	transition: all 0.4s ease-in;	
+	width:100%;
+	z-index:-2;
+	padding-bottom:2em;	
+}
+
+.theme-changer > p {
+	color:white;	
+	margin:0;	
+	text-align: center;
+	font-size:0.9em;	
+	cursor:pointer;
+}
+
+.theme-changer:hover > .theme-buttons-container, .theme-buttons-container:hover  {
+	top:5em;
+}
+
+.theme-buttons-container > button {
+	width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid rgb(255, 255, 255);
+    display: block;
+    margin: 0 auto;
+    color: white;
+    margin-top: 1.5em;
+	font-size: 0.7em;
+	box-shadow: 0 0 8px rgba(0,0,0,0.7), inset -5px -2px rgba(255,255,255,0.2);
+	transition:all 0.1s linear;
+}
+
+.theme-buttons-container > button:first-of-type {
+	background: linear-gradient(35deg, #00afb3, #630080);	
+}
+.theme-buttons-container > button:nth-of-type(2) {
+	background-color: #040D20;	
+}
+
+.theme-buttons-container-mobile > button {
+	width: 50px;
+    height: 100%;    
+    border: none;
+    color: white;
+    font-size: 0.7em;     
+    box-shadow: inset -5px -2px rgba(255,255,255,0.2);    
+	transition: all 0.1s linear;	
+}
+
+.theme-buttons-container-mobile > button:first-of-type {
+	background: linear-gradient(35deg, #00afb3, #630080);	
+	margin-right: 1em;   
+}
+.theme-buttons-container-mobile > button:nth-of-type(2) {
+	background-color: #040D20;
+	margin-left: 1em;   	
+}
+
+.theme-button-not-focused:hover {
+	transform:scale(1.2);
+}
+
+.theme-button-focused {
+	transform:scale(1.2);
+}
+
+@media (max-width:800px) {	
+	.navList li a {
+		font-size:0.8em;			
+	}
+}
+
+@media (max-width:600px) {
+	.logoMobile {
+		visibility:visible;
+	}
+
+	.mobileListContainer {
+			display:block;			
+	}
+
+	.nav-visits  {
+		top:5.5em;
+	}
+
+	.navbar {
+		display:none;
+	}
+}

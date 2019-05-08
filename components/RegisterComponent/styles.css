@@ -1,0 +1,331 @@
+.register-form-container-light {
+    background: linear-gradient(35deg, #00afb3, #630080);
+    min-height:90vh;
+    
+}
+
+.register-form-container {
+    width:100%;    
+    display:flex;
+    justify-content:center;  
+    box-sizing:border-box;
+    padding:2em 0;
+}
+
+.register-form-container-dark {
+    background-image: url('../HomeComponent/images/starrysky.jpg');
+    background-attachment: fixed;
+    background-size: cover;    
+    background-position:50% 40%;
+}
+
+.register-email-confirmation {
+    width:100%;
+    height:80vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+.register-email-confirmation > div {
+    background-color: white;    
+    box-shadow: 0 0 10px rgba(0,0,0,0.8);
+    max-width: 500px;
+    padding: 1em;
+    border-radius: 3px;
+    text-align: center;
+    color: #4c4c4c;
+}
+
+.register-email-confirmation > div > p:first-of-type {
+    font-weight:bold;
+    font-size:1.2em;
+}
+
+
+
+.register-form {
+    background-color:white;
+    padding:2em;
+    height:100%;
+    background: 
+    radial-gradient(circle at top left, transparent 80%,rgba(0,0,0,.2) 0),
+    radial-gradient(circle at top center, transparent 80%,rgba(0,0,0,.2) 0),
+    linear-gradient(0deg,#d0dbf3,white);
+    box-shadow:0 0 10px rgba(0,0,0,0.5);
+    flex-direction: column;
+    align-items: flex-start;
+    display:flex;
+    position:relative;
+    z-index:1;
+}
+
+.register-form h1 {
+    margin:0 auto;    
+}
+
+.register-form > p {
+    margin:0 auto;
+    padding: 1em;
+    text-align:center;
+    
+}
+
+.register-two-sec p {
+    color:rgb(59, 59, 59);
+    margin:1em 0 0.5em 0;
+}
+
+.register-form input[type="password"],  .register-form input[type="text"]{
+    padding:0.5em;
+    box-sizing: border-box;
+	border-radius:3px;
+	border:1px solid rgb(189, 189, 189);
+    outline:none;
+    width:300px;
+    transition:all 0.1s ease-in;
+}
+.register-form input[type="password"]:focus,  .register-form input[type="text"]:focus {	
+    box-shadow: 0 0 0 1px #3E5381;
+    transform:scale(1.05);
+}
+
+.register-mandatory-sec {    
+    position:relative;
+}
+
+.register-mandatory-sec:after {
+    content:'*';
+    position:absolute;
+    color:#00e8df;
+    text-shadow: 2px 2px #2A3E6B;
+    font-size:80px;
+    top:-40px;
+    left:-18px;
+}
+
+.register-mandatory-sec:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 125%;
+    background: linear-gradient(to bottom, rgb(255, 208, 0),#ff7403);
+    top: 0;
+    left: 0;
+    z-index: -1;    
+    clip-path: polygon(0% 0%, 0% 100%, 3% 2%, 99% 1%, 100% 50%, 100% 0% );    
+}
+
+.register-two-sec {
+    display:flex;
+}
+
+.register-two-sec > section {
+    padding:0 2em;
+}
+
+.register-two-sec > section > input {
+    display:block;
+}
+
+.register-two-sec > section > p {
+    display:inline-block;
+    margin:0;
+    padding:1em 0 0.5em 0;
+    font-size:0.9em;
+}
+
+.register-invalid-email {  
+    display:none;
+    font-size:0.8em;
+    color:red;
+    margin:0;    
+}
+
+.register-hide {
+    visibility:hidden;
+}
+.register-block {
+    display:none;
+}
+
+.usernameSpan {
+    display:inline-block;
+    vertical-align:middle;
+    height:1em;
+    width:1em;
+    border-radius:50%;
+    position:relative;
+    margin-left:0.5em;
+}
+.usernameSpan > p {
+    position: absolute;
+    left: 2em;
+    top: -1em;
+    font-size: 0.7em;
+    width: 12em;
+    color: red;
+}
+
+.usernameSpanFetching {
+    box-shadow:inset 0 2px #213561;    
+    animation: comp-spin 1s linear infinite;
+}
+
+.usernameExistsTrue{
+    background-color:red;   
+    box-shadow:inset 0 0 3px rgba(0,0,0,0.4);  
+}
+.usernameExistsTrue:before {
+    content:'';
+    position:absolute;
+    height:2px;
+    width: 80%;
+    top: 40%;
+    left: 10%;  
+    transform: rotate(45deg);
+    background-color:white;
+}
+.usernameExistsTrue:after {
+    content:'';
+    position:absolute;
+    height:2px;
+    width: 80%;
+    top: 40%;
+    left: 10%;  
+    transform: rotate(-45deg);
+    background-color:white;
+}
+
+.usernameExistsFalse {
+    background-color:green;
+    box-shadow:inset 0 0 3px rgba(0,0,0,0.4);  
+}
+
+.usernameExistsFalse:before {
+    content: '';
+    position: absolute;
+    border-bottom: 2px solid white;
+    border-right: 2px solid white;
+    width: 40%;
+    height: 55%;    
+    transform: translate(4px, 1px) rotate(39deg);
+}
+
+.register-submit-recaptcha {
+    box-sizing:border-box;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 2em; width: 100%;
+    margin-top:1em;
+}
+
+.register-submit-recaptcha button {    
+    background-color:#ff7403;	
+    border: none;
+    border-radius: 3px;
+    color:white;
+    padding:1em 2em;    
+    box-shadow: 0 3px 1px rgba(0,0,0,0.3);    
+    transition:all 0.1s linear;
+    display:none;
+}
+
+
+.register-submit-recaptcha button:hover {
+    background-color:#b85300;
+    box-shadow: none;
+}
+
+#register-password-info {
+    background-color: #3C517F;
+    color: white;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    margin-left: 1em;    
+    vertical-align: middle;
+    padding: 0;
+    text-align: center;
+    position:relative;
+    display:inline-block;
+}
+
+#register-password-info:hover > #info-popup {
+    display:block;
+    opacity:1;
+}
+
+#info-popup {
+    z-index:1;
+    position: absolute;
+    left: 3em;
+    top: -40px;
+    width: 12em;
+    font-size: 0.7em;
+    box-shadow: inset -1px 1px #ce3434;
+    background-color: #fff0f3;
+    border-radius: 3px;
+    padding: 0.5em;
+    display:none;
+    opacity:0;
+}
+
+#info-popup:before {
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid #fff0f3;
+    position: absolute;
+    content: '';
+    left: -10px;
+    top: 50%;
+    transform: translatey(-50%);
+}
+.cannot-register {
+    color: red;
+    padding: 1em 0;
+    display: block;
+}
+
+.register-loader {
+    width:40px;
+    height:40px;
+    border: 3px solid #3E5381;
+    border-top:3px solid transparent;
+    border-radius:50%;
+    animation:comp-spin 1s linear infinite;
+    display:none;
+}
+
+@media(max-width:840px) {
+    .register-form {
+        width:100%;
+    }
+    .register-two-sec {
+        flex-direction:column;
+        margin:0 auto;
+    }
+    .register-mandatory-sec:before {        
+        height: 103%;        
+        clip-path: polygon(0% 0%, 0% 100%, 70% 100%, 3% 99%, 3% 2%, 99% 1%, 100% 50%, 100% 0% );   
+    }
+    .register-submit-recaptcha {
+        flex-direction:column;
+        margin:0 auto;
+    }
+    .register-optional-sec {
+        margin-top:2em;
+    }
+    .register-submit-recaptcha button {
+        margin-top:1em;
+    }
+}
+
+@media(max-width:500px) {
+    .register-form input[type="password"],  .register-form input[type="text"]{
+        width:250px;
+    }
+    .register-form {
+        padding: 2em 0;
+    }
+}

@@ -1,0 +1,68 @@
+.single-entry-container {
+    width:95%;  
+    margin:0 auto;
+    position:relative;
+    box-shadow: 0 3px 10px #c9daff;
+    margin-bottom:30px;
+    border-radius:3px; 
+    background: linear-gradient(35deg, #00afb3, #630080);
+  }
+  
+  .single-entry-container:hover {
+    background: linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.2)), linear-gradient(to right, #46619c, #c9daff);
+  }
+  
+  .single-entry-text {
+    width:100%;    
+    overflow:hidden;
+    height: 0; 
+    background-color:white;  
+    transition: opacity 0.4s linear;
+    opacity:0.6;
+  }
+  
+  .single-entry-text p {
+    margin:0; 
+    padding:1em;
+    line-height:1.5em;
+  }
+  
+  .single-entry-container > label { 
+    display: inline-block;
+    width:100%;  
+    padding:1em;
+    box-sizing:border-box;
+    font-size:1.2em;
+    line-height:1em;    
+    cursor:pointer; 
+    color:white;
+  }
+  
+  .single-entry-container > input[type="checkbox"] {  
+    display:none;
+  }
+  
+  .entry-label-arrow {  
+    position:absolute;
+    top:1.2em;
+    right:20px; 
+    width:10px;
+    height:10px;
+    border-bottom:2px solid white;
+    border-right:2px solid white;
+    transform:rotate(45deg);
+    outline:none;
+  }
+  
+  .single-entry-container > input[type="checkbox"]:checked ~ .entry-label-arrow {
+    top:1.5em;
+    border-bottom:2px solid transparent;
+    border-right:2px solid transparent;
+    border-left:2px solid white;
+    border-top:2px solid white;
+  }
+  
+  .single-entry-container > input[type="checkbox"]:checked ~ .single-entry-text {  
+   height: initial;  
+    opacity:1;
+  }

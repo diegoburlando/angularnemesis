@@ -1,0 +1,41 @@
+
+.chat-recorder > button {
+	
+    padding: 15px 20px;
+    line-height: 15px;
+    font-size:15px;
+    background-color: #ffffff;
+    border: 1px solid lightgrey;
+    color: #002240;
+    outline: none;    
+    cursor: pointer;
+}
+
+.chat-recorder > button:first-of-type {
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+	border-right:none;
+}
+.chat-recorder > canvas {
+	vertical-align: top;
+	border: 1px solid black;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+}
+
+.chat-recorder > span {
+	font-size: 13px;
+    text-align: center;    
+    color: #737373;
+
+}
+
+.chat-recorder {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    width:100%;
+    box-sizing:border-box;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}

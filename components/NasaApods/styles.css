@@ -1,0 +1,259 @@
+.ap-apodContainer {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  width:100%;
+
+}
+
+.ap-loader {
+  width:100%;
+  height:90vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.ap-loader > div {
+  width:80px;
+  height:80px;
+  border-radius:50%;
+  border:4px solid white;
+  border-left:4px solid #262D41;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform:rotate(0deg);
+  }
+  to {
+    transform:rotate(360deg);
+  }
+}
+
+.ap-show {
+  display:initial;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  width:100%;
+}
+
+.ap-headerTitle {
+  display:flex;
+  align-items: center;
+  justify-content: space-around;
+  color:white;
+
+}
+
+.ap-apodTitle {
+  margin:0 ;  
+  padding:1em;
+}
+
+.ap-darkVeil {
+  width:100%;
+  height:100vh;
+  background-color:rgba(0,0,0,0.6);
+  z-index:3;
+  position:fixed;
+  display:block;
+  cursor:pointer;
+
+}
+.ap-hideVeil {
+  display:none;
+}
+
+.ap-pagination {
+  padding:1em;
+  display:flex;
+  justify-content:space-between;
+  width:80%;
+
+}
+.ap-pagButton {
+  background-color:transparent;
+  border-radius:3px;
+  border:1px solid white;
+  padding:1em 2em;
+  color:white;
+  display:inline;
+  transition:all 0.15s linear;
+  cursor:pointer;
+  outline:none;
+}
+
+.ap-pagButton:hover {
+  background-color:white;
+  color:#323c56;
+}
+.ap-hideButton {
+  display:none;
+}
+
+.ap-gridcontainer {
+  justify-content: center;  
+  display:grid; 
+  max-width:1500px;
+  width:100%;
+  padding:1em 2em 3em 1em;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-auto-rows: 280px;
+  grid-auto-flow: dense;
+  grid-gap:30px;
+  box-sizing:border-box;
+}
+
+
+.ap-item > p {
+  z-index:2;
+  position:relative;
+  margin:0;
+  padding:0.5em 0;
+  text-align:center;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  
+  background-color:rgba(0,0,0,0.5);
+}
+.ap-item {
+  border-radius:3px;  
+  position:relative;
+  grid-column-start: auto;
+  grid-row-start: auto;
+  background-color:rgba(0,0,0,0.5);
+  background-size:cover;
+  background-position:50%;
+  background-repeat:no-repeat;
+  color:white;
+  transition: all 0.1s linear;
+  box-shadow:1px 1px 10px rgba(0,0,0,0.8);
+  cursor:pointer;
+}
+
+.ap-item > iframe {
+  border:none;
+  padding:0;
+  margin:0;
+}
+.ap-clicked {
+  position:fixed;  
+  background-size:contain;  
+  transition: all 0.1s linear;
+  box-shadow:1px 1px 20px rgba(0,0,0,0.8);
+  width:60%;
+  height:70vh;
+  top:0;
+  left:0;
+  bottom:0;
+  right:0;
+  margin:auto;
+  z-index:4;
+  cursor:initial;
+}
+
+.ap-item:hover {
+ transform:scale(1.03);
+}
+
+
+.ap-itemMedium {
+  grid-row-end: span 2;
+}
+
+.ap-itemLarge {
+  grid-column: 1/-2;
+}
+
+.ap-itemFull {
+  grid-column: 1/-1;
+  grid-row-end: span 1;
+}
+
+
+.ap-apodExplanation {
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  color:white;
+  font-size:15px;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  padding:10px 5px;
+  line-height:20px;
+  background-color:rgba(0,0,0,0.7);
+  box-sizing:border-box;
+  cursor:pointer;
+  
+}
+
+
+.ap-largeExplanation {
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  color:white;
+  font-size:15px;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  padding:10px;
+  line-height:20px;
+  background-color:rgba(0,0,0,0.7);
+  box-sizing:border-box;  
+  cursor:pointer;
+}
+
+
+
+
+.ap-apodExplanation > p {
+  margin:0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  
+}
+
+
+.ap-apodExplanation:before {
+  position:absolute;
+  content:'';
+  height:0;
+  top:-15px;
+  width:0;
+  border-bottom:15px solid rgba(0,0,0,0.7);
+  border-left:15px solid transparent;
+  border-right:15px solid transparent;
+  left:0;
+  right:0;
+  margin:0 auto;
+
+}
+
+.ap-largeExplanation > p{
+  white-space: normal;
+  overflow: initial;
+  text-overflow: initial;
+  text-align:justify;
+}
+
+
+@media (max-width:600px) {
+  .ap-pagination {
+  
+  flex-direction:column;
+  
+}
+.ap-apodTitle {
+  font-size:1.5em;
+  text-align:center;
+}
+.ap-headerTitle > p {
+  font-size:0.8em;
+}
+}

@@ -1,0 +1,87 @@
+.tec-tecContainer {
+	
+	display:flex;
+	align-items:flex-start;
+	justify-content:space-evenly;	
+	flex-direction:column;
+}
+
+.tec-mainWork-light {
+	background: linear-gradient(35deg, #00afb3, #630080);
+	color:white;	
+}
+
+.tec-mainWork-dark {
+	background: linear-gradient(to top right, #223254 , #040d20);
+	color:white;	
+}
+
+.tec-heading {
+	margin:0;
+	padding-top:1em;
+	text-align:center;
+	font-size: 2.2em;    
+    letter-spacing: 2px;
+     font-weight:normal;
+	
+}
+.tec-tecContainer .tec-lists h2 {
+	text-align:center;
+	 font-weight:normal;
+
+}
+
+
+.tec-tecContainer .tec-lists li {
+	
+	display:inline-block;
+}
+.tec-lists {
+	width:100%;
+}
+
+.tec-lists > hr {
+	border: none;
+	width:300px;
+	height:2px;
+	background:linear-gradient(to left, rgba(0,0,0,0), white, rgba(0,0,0,0));
+	margin:0 auto;
+}
+
+.tec-tecContainer > div {
+	padding:1em 0 0 0;
+}
+
+
+.tec-tecContainer ul {
+	list-style-type:none;
+	padding:0;
+	text-align:center;
+}
+
+
+.tec-logosContainer {
+	padding:1em 0;	
+	text-align:center;
+
+}
+.tec-divLogo {
+  border-radius:50%;  
+  box-shadow: inset 0 0 0 3px rgba(0,0,0,0.1); 
+  background-size: 70%;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  height:80px;
+  width:80px;
+  display:flex;
+  margin:0 auto;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  transition:all 0.2s;
+}
+
+.tec-divLogo:hover {
+	transform: rotate(20deg);
+	
+}

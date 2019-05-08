@@ -1,0 +1,239 @@
+.playlistContainer {  
+  box-sizing: border-box;    
+  background-color: white;    
+  width:100%;
+  
+  }
+  
+  .playlistVideo {
+    display:flex;
+    justify-content:center;
+  }
+
+  .playlistfeedtitle {
+    width:1112px;
+
+    padding: 1em 0;
+    margin: 0;
+    margin:0 auto;
+   }
+
+.number {
+  width:15px;
+  height:90px;  
+  flex-shrink: 0;
+  font-size:10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color: hsl(0,0%,50%);
+
+}
+
+.playlistTitle {
+
+  width:400px;
+  height:100px;
+  background-color:hsl(0,0%,90%);
+  padding:10px 15px;
+  box-sizing:border-box;
+  color:hsl(0,0%,30%);
+  position:relative;
+  display:flex;
+  justify-content:space-around;
+}
+
+.playlistTitle > div > p{
+
+  margin:0;
+  padding:0; 
+  font-weight:bold;
+
+}
+
+.playlistTitle > button {
+  background:none;
+  color:hsl(0,0%,50%);
+  cursor:pointer;
+  outline:none;
+  border:none;
+  font-size:2em;
+}
+.playlistTitle > button:hover {
+   color:hsl(0,0%,30%);;
+}
+
+.playlistTitle > button:first-of-type {
+  padding-right:15px;
+}
+
+.playlistTitle > button:nth-of-type(2) {
+  padding-left:15px;
+}
+.playlistTitle > div {
+  position:relative;
+
+}
+
+.playlistTitle > div > button {
+  position:absolute;
+  left:0;
+  bottom:0;
+  background:none;
+  border:none;
+  font-weight:bold;
+  font-size:1em;
+  color:hsl(0,0%,50%);
+  cursor:pointer;
+  outline:none;
+}
+
+.playlistTitle > div > button:hover {
+  color:hsl(0,0%,30%);;
+}
+
+.playlistvideowrapper {
+  position: relative;
+  height: 400px;
+  width: 712px;
+  overflow: hidden;
+  display: block;
+}
+
+.playlistvideowrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block; }
+
+  .thumbnailsContainer {
+  color:hsl(0,0%,30%);
+  width:400px;
+  height:300px;
+  overflow-y: scroll;
+  background-color:hsl(0,0%,95%);
+}
+.thumbnails {
+  width:100%;
+  display:flex;
+  cursor:pointer;
+  border-bottom:1px solid hsl(0,0%,90%);
+  padding: 5px 0;
+}
+
+.thumbnails >img {
+  width:120px;
+  flex-shrink:0;
+}
+
+.thumbnails > p {
+  font-size:0.8em;
+  padding: 0 5px;
+  font-weight:bold;
+}
+
+.playlistfeeddescription {
+  width:1112px;
+  font-size:0.9em;
+  margin:0 auto;
+
+}
+
+.playlistfeeddescription > p:first-of-type {
+  font-weight:bold;
+}
+
+
+@media (max-width:1120px) {
+
+  .playlistfeedtitle {
+    width:850px; }
+
+.playlistvideowrapper {
+  
+  height: 282px;
+  width: 500px;
+}
+.thumbnailsContainer {
+  color:hsl(0,0%,30%);
+  width:350px;
+  height:182px;
+}
+
+.playlistfeeddescription {
+  width:850px;
+}
+
+.playlistTitle {
+
+  width:350px;
+}
+
+}
+
+@media (max-width:850px) {
+  .playlistVideo {
+    flex-direction:column;
+
+  }
+
+   .playlistVideo > section {
+    width:100%;
+   }
+
+
+  .playlistfeedtitle {
+    width:80%; }
+
+.playlistvideowrapper {
+  margin:0 auto;
+  height:0;
+  width: 80%;
+  padding-bottom:55%;
+}
+.thumbnailsContainer {
+  color:hsl(0,0%,30%);
+  width:80%;
+  height:300px;
+  margin: 0 auto;
+}
+
+.playlistfeeddescription {
+  margin: 0 auto;
+  width:80%;
+}
+
+.playlistTitle {
+  margin:0 auto;  
+  width:80%;
+}
+}
+
+
+@media (max-width:600px) {
+  
+
+  .playlistfeedtitle {
+    width:90%; }
+
+.playlistvideowrapper {  
+  width: 90%;  
+}
+.thumbnailsContainer {  
+  width:90%;  
+}
+
+.playlistfeeddescription { 
+  width:90%;
+}
+
+.playlistTitle {  
+  width:90%;
+
+}
+.playlistTitle > div > p{  
+  font-size:0.9em;
+}
+}

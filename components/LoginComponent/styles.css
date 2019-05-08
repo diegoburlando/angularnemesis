@@ -1,0 +1,123 @@
+.login-form-container {    
+    width:100%;
+    height:80vh;
+    display:flex;
+    justify-content:center;    
+    box-sizing:border-box;
+    padding-top:2em;
+}
+.login-form-container-light {
+    background: linear-gradient(35deg, #00afb3, #630080);
+}
+
+.login-form-container-dark {
+    background-image: url('../HomeComponent/images/starrysky.jpg');
+    background-attachment: fixed;
+    background-size: cover;    
+    background-position:50% 40%;
+}
+
+.login-form {
+    background-color:white;
+    border-radius:3px;
+    height:350px;
+    padding:2em;       
+    background:     
+    radial-gradient(circle at top left, transparent 70%,rgba(0,0,0,.2) 0),
+    radial-gradient(circle at top center, transparent 70%,rgba(0,0,0,.2) 0),
+    linear-gradient(0deg,rgba(206, 217, 242,0.7),rgba(255,255,255,0.7)),
+    url('./images/windRoseDark.png'),
+    linear-gradient(0deg,#d0dbf3,white);
+    background-position: 100%, 100%, 100%, 100px 100px, 100%;
+    background-repeat:no-repeat;   
+    background-size:100%;
+    box-shadow:0 0 10px rgba(0,0,0,0.5);
+    flex-direction: column;
+    align-items: flex-start;
+    display:flex;
+}
+
+.login-form h1 {
+    margin:0 auto;  
+    font-size:1.7em;  
+}
+
+.login-form input[type="password"],  .login-form input[type="text"]{
+	padding:0.5em;
+	border-radius:3px;
+	border:1px solid rgb(189, 189, 189);
+    outline:none;
+    width:250px;
+}
+.login-form input[type="password"]:focus,  .login-form input[type="text"]:focus {	
+	box-shadow: 0 0 0 1px #3E5381;
+}
+
+.login-form p:last-child {
+    color:red;
+    align-self:flex-end;
+    visibility:hidden;
+}
+.login-button-loader {
+    align-self:flex-end;
+    display:flex;
+    align-items:center;
+    margin-top:1em;
+}
+
+.login-button-loader > div {
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    border:3px solid #3E5381;
+    border-top:3px solid transparent;
+    animation:comp-spin 1s linear infinite;
+    margin-right:1em;
+    display:none;
+}
+
+.login-form-button {
+    display:block;    
+    border: none;
+    border-radius: 3px;
+    padding:1em 2em;    
+    transition:all 0.1s linear;
+}
+
+.login-form-button-light {    
+    background: #ff7403;    
+    color:white;    
+    box-shadow: 0 3px 1px rgba(0,0,0,0.3); 
+}
+
+.login-form-button-light:hover {
+    background-color: #b85300;
+    box-shadow: none;
+}
+
+.login-form-button-dark {
+	background-color:transparent;
+	color:#040D20;	
+	border:1px solid #040D20;    
+}
+
+.login-form-button-dark:hover {
+	background-color:#040D20;	
+	color:white;	
+}
+
+.login-form p {
+    color:rgb(59, 59, 59);
+    margin:1em 0 0.5em 0;
+}
+
+@media(max-width:400px) {
+    .login-form {
+        width:100%;
+        align-items:center;
+        padding:2em 1em;
+    }
+    .login-form-button {        
+        align-self:center;
+    }
+}
