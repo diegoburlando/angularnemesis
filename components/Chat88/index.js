@@ -242,7 +242,7 @@ sendMessage = (event) => {
 saveImage = (event) => {
   if (this.user) {    
     let file = event.target.files[0];    
-    if(typeof file === undefined) return;
+    if(typeof file === "undefined") return;
     if (!file.type.match('image.*')) {
       alert('You can only share images');
       return;
