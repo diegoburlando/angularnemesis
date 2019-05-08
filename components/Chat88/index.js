@@ -385,8 +385,9 @@ updateData = (event) => {};
         <form>
 				<div className = "chat-user" key={user.id}> <span >{user.Name}</span><div className = {user.isTyping ? "chat-typing" : "chat-idle"}></div>
 					<button onClick = { () => {this.sendPrivate(user)} }>Send</button> 
-					<label> Send an image     
-					<input onClick="this.form.reset()" onChange = {(e) => {this.saveImageBis(e,user)}} type="file" accept = "image/*,capture=camera"/>     
+					<label> Send an image   
+          <input onClick= {(e) => e.target.value = null} onChange = {(e) => {this.saveImageBis(e,user)}} type="file" accept = "image/*,capture=camera"/>      
+					{/* <input onClick="this.form.reset()" onChange = {(e) => {this.saveImageBis(e,user)}} type="file" accept = "image/*,capture=camera"/>      */}
 					</label>
 					<Recorder getRecordedData = { (blob) => {this.getRecDataFromRecorder(blob,user,false)}}/>
 				</div>
